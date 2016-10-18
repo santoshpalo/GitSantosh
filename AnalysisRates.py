@@ -14,14 +14,17 @@ Created on Thu Dec 24 20:01:00 2015
 
 @author: spalo
 """
+from imp import reload
 import sys
-reload(sys)  # Reload does the trick!
-sys.setdefaultencoding('UTF8')
+#===============================================================================
+# reload(sys)  # Reload does the trick!
+# sys.setdefaultencoding('UTF8')
+#===============================================================================
 
 
 import numpy as np
 import pandas as pd
-import LeadStatementM as ls
+import LeadStatement1 as ls
 
 a=200
 b=220
@@ -38,8 +41,8 @@ index1=['unskilled labour']
 columns =['quantity','rate','amount']
 table1 = pd.DataFrame(d1,index = index1,columns = columns)
 table1['amount']= table1.quantity*table1.rate
-table1['amount'] = table1['amount'].map('Rs.{:,.2f}'.format)
-table1['rate'] = table1['rate'].map('Rs.{:,.2f}'.format)
+table1['amount'] = table1['amount'].map('\u20B9{:,.2f}'.format)
+table1['rate'] = table1['rate'].map('\u20B9{:,.2f}'.format)
 table1['quantity'] = table1['quantity'].map('{:,.2f}no.'.format)
 #Excavation of foundation in hard soil
 d2={'quantity':[0.43*1.2],
@@ -51,7 +54,7 @@ index2=['unskilled labour']
 columns =['quantity','rate','amount']
 table2 = pd.DataFrame(d2,index = index2,columns = columns)
 table2['amount']= table2.quantity*table2.rate
-table2['rate'] = table2['rate'].map('Rs.{:,.2f}'.format)
+table2['rate'] = table2['rate'].map('\u20B9{:,.2f}'.format)
 table2['quantity'] = table2['quantity'].map('{:,.2f}no.'.format)
 #Cement concrete (1:4:8)
 d31={'quantity':[3.9,0.18],
@@ -66,7 +69,7 @@ table31['amount']= table31.quantity*table31.rate
 table31['quantity'] = table31['quantity'].map('{:,.2f}no.'.format)
 
 d32={'quantity':[1.72],
-    'rate':[ls.table1['TotalCost'][5]],
+    'rate':[ls.z['total cost'][4]],
  'amount':[0]
     
  }
@@ -74,13 +77,11 @@ index32=['cement']
 columns =['quantity','rate','amount']
 table32 = pd.DataFrame(d32,index = index32,columns = columns)
 table32['amount']= table32.quantity*table32.rate
-table32['quantity'] = table32['quantity'].map('{:,.2f}qtl'.format)
+table32['quantity'] = table32['quantity'].map('{:,.4f}qtl'.format)
 
 d33={'quantity':[0.96,0.48],
-    'rate':[ls.table1['TotalCost'][8],ls.table1['TotalCost'][0]],
- 'amount':[0]
-    
- }
+    'rate':[ls.z['total cost'][11],ls.z['total cost'][2]],
+    'amount':[0,0]}
 
 
 index33=['40mm h.g metal','sand']
@@ -105,7 +106,7 @@ table41['amount']= table41.quantity*table41.rate
 table41['quantity'] = table41['quantity'].map('{:,.2f}no.'.format)
 
 d42={'quantity':[2.29],
-    'rate':[ls.table1['TotalCost'][5]],
+    'rate':[ls.z['total cost'][4]],
  'amount':[0]
     
  }
@@ -113,10 +114,10 @@ index42=['cement']
 columns =['quantity','rate','amount']
 table42 = pd.DataFrame(d42,index = index32,columns = columns)
 table42['amount']= table42.quantity*table42.rate
-table42['quantity'] = table42['quantity'].map('{:,.2f}qtl'.format)
+table42['quantity'] = table42['quantity'].map('{:,.4f}qtl'.format)
 
 d43={'quantity':[0.96,0.48],
-    'rate':[ls.table1['TotalCost'][8],ls.table1['TotalCost'][0]],
+    'rate':[ls.z['total cost'][11],ls.z['total cost'][2]],
  'amount':[0]
     
  }
@@ -144,7 +145,7 @@ table51['amount']= table51.quantity*table51.rate
 table51['quantity'] = table51['quantity'].map('{:,.2f}no.'.format)
 
 d52={'quantity':[3.24],
-    'rate':[ls.table1['TotalCost'][5]],
+    'rate':[ls.z['total cost'][4]],
  'amount':[0]
     
  }
@@ -152,10 +153,10 @@ index52=['cement']
 columns =['quantity','rate','amount']
 table52 = pd.DataFrame(d52,index = index52,columns = columns)
 table52['amount']= table52.quantity*table52.rate
-table52['quantity'] = table52['quantity'].map('{:,.2f}qtl'.format)
+table52['quantity'] = table52['quantity'].map('{:,.4f}qtl'.format)
 
 d53={'quantity':[0.9,0.45],
-    'rate':[ls.table1['TotalCost'][10],ls.table1['TotalCost'][0]],
+    'rate':[ls.z['total cost'][10],ls.z['total cost'][2]],
  'amount':[0]
     
  }
@@ -183,7 +184,7 @@ table61['amount']= table61.quantity*table51.rate
 table61['quantity'] = table61['quantity'].map('{:,.2f}no.'.format)
 
 d62={'quantity':[4.29],
-    'rate':[ls.table1['TotalCost'][5]],
+    'rate':[ls.z['total cost'][4]],
  'amount':[0]
     
  }
@@ -191,10 +192,10 @@ index62=['cement']
 columns =['quantity','rate','amount']
 table62 = pd.DataFrame(d62,index = index62,columns = columns)
 table62['amount']= table62.quantity*table62.rate
-table62['quantity'] = table62['quantity'].map('{:,.2f}qtl'.format)
+table62['quantity'] = table62['quantity'].map('{:,.4f}qtl'.format)
 
 d63={'quantity':[0.9,0.45],
-    'rate':[ls.table1['TotalCost'][10],ls.table1['TotalCost'][0]],
+    'rate':[ls.z['total cost'][10],ls.z['total cost'][2]],
  'amount':[0]
     
  }
@@ -211,7 +212,7 @@ table6 = table61.append(table62).append(table63)
 Tamount6 = round(table6.amount.sum(),2)
 #R.C.C. M-20grade concrete
 d71={'quantity':[20.0/15,0.86/15,1.5/15],
-   'rate':[a,230.0,c],
+   'rate':[a,b,c],
 'amount':[0]
    
 }
@@ -222,7 +223,7 @@ table71['amount']= table71.quantity*table71.rate
 table71['quantity'] = table71['quantity'].map('{:,.2f}no.'.format)
 
 d72={'quantity':[5.21*10/15],
-    'rate':[ls.table1['TotalCost'][5]],
+    'rate':[ls.z['total cost'][4]],
  'amount':[0]
     
  }
@@ -230,10 +231,10 @@ index72=['cement']
 columns =['quantity','rate','amount']
 table72 = pd.DataFrame(d72,index = index72,columns = columns)
 table72['amount']= table72.quantity*table72.rate
-table72['quantity'] = table72['quantity'].map('{:,.2f}qtl'.format)
+table72['quantity'] = table72['quantity'].map('{:,.4f}qtl'.format)
 
 d73={'quantity':[8.1/15,5.4/15,0.45],
-    'rate':[ls.table1['TotalCost'][11],ls.table1['TotalCost'][9],ls.table1['TotalCost'][0]],
+    'rate':[ls.z['total cost'][10],ls.z['total cost'][8],ls.z['total cost'][2]],
  'amount':[0]
     
  }
@@ -263,7 +264,7 @@ table7 = table71.append(table72).append(table73).append(table74)
 Tamount7 = round(table7.amount.sum(),2)
 #R.C.C. M-25grade concrete
 d81={'quantity':[20.0/15,0.86/15,1.5/15],
-   'rate':[a,230.0,c],
+   'rate':[a,b,c],
 'amount':[0]
    
 }
@@ -274,7 +275,7 @@ table81['amount']= table81.quantity*table81.rate
 table81['quantity'] = table81['quantity'].map('{:,.2f}no.'.format)
 
 d82={'quantity':[6.05*10/15],
-    'rate':[ls.table1['TotalCost'][5]],
+    'rate':[ls.z['total cost'][4]],
  'amount':[0]
     
  }
@@ -282,10 +283,10 @@ index82=['cement']
 columns =['quantity','rate','amount']
 table82 = pd.DataFrame(d82,index = index82,columns = columns)
 table82['amount']= table82.quantity*table82.rate
-table82['quantity'] = table82['quantity'].map('{:,.2f}qtl'.format)
+table82['quantity'] = table82['quantity'].map('{:,.4f}qtl'.format)
 
 d83={'quantity':[8.1/15,5.4/15,0.45],
-    'rate':[ls.table1['TotalCost'][11],ls.table1['TotalCost'][9],ls.table1['TotalCost'][0]],
+    'rate':[ls.z['total cost'][10],ls.z['total cost'][8],ls.z['total cost'][2]],
  'amount':[0]
     
  }
@@ -313,7 +314,7 @@ table8 = table81.append(table82).append(table83).append(table84)
 Tamount8 = round(table8.amount.sum(),2)
 #Reinforcement works
 d91={'quantity':[0.8,0.044,0.3],
-   'rate':[a,230.0,d],
+   'rate':[a,b,d],
 'amount':[0]
    
 }
@@ -324,15 +325,15 @@ table91['amount']= table91.quantity*table91.rate
 table91['quantity'] = table91['quantity'].map('{:,.2f}no.'.format)
 
 d92={'quantity':[1.05],
-    'rate':[ls.table1['TotalCost'][6]],
+    'rate':[ls.z['total cost'][5]],
  'amount':[0]
     
  }
-index92=['table6SD bar']
+index92=['HYSD bar']
 columns =['quantity','rate','amount']
 table92 = pd.DataFrame(d92,index = index92,columns = columns)
 table92['amount']= table92.quantity*table92.rate
-table92['quantity'] = table92['quantity'].map('{:,.2f}qtl'.format)
+table92['quantity'] = table92['quantity'].map('{:,.4f}qtl'.format)
 
 d93={'quantity':[0.8],
     'rate':[75],
@@ -352,7 +353,7 @@ Tamount9 = round(table9.amount.sum(),2)
 #Slab and chajja
 
 d101={'quantity':[2.75,2.75],
-   'rate':[230.0,c],
+   'rate':[b,c],
 'amount':[0]
    
 }
@@ -374,7 +375,7 @@ table102['amount']= table102.quantity*table102.rate
 table102['quantity'] = table102['quantity'].map('{:,.2f}m'.format)
 
 d103={'quantity':[0.112,0.34,1.142],
-    'rate':[19650,19650,ls.table1.TotalCost[4]],
+    'rate':[19650,19650,ls.z['total cost'][6]],
  'amount':[0]
     
  }
@@ -393,7 +394,7 @@ Tamount104=Tamount10/10+Tamount101
 #R.C.C. stairs
 
 d111={'quantity':[2.75,2.75],
-   'rate':[230.0,c],
+   'rate':[b,c],
 'amount':[0]
    
 }
@@ -415,7 +416,7 @@ table112['amount']= table112.quantity*table112.rate
 table112['quantity'] = table112['quantity'].map('{:,.2f}m'.format)
 
 d113={'quantity':[0.039,0.238,0.35],
-    'rate':[19650,19650,ls.table1.TotalCost[4]],
+    'rate':[19650,19650,ls.z['total cost'][6]],
  'amount':[0]
     
  }
@@ -431,7 +432,7 @@ Tamount11= round(table11.amount.sum(),2)
 #R.C.C. plinth bend and footings
 
 d121={'quantity':[0.5,0.5],
-   'rate':[230.0,c],
+   'rate':[b,c],
 'amount':[0]
    
 }
@@ -453,7 +454,7 @@ table123['amount']= table123.quantity*table123.rate
 table123['quantity'] = table123['quantity'].map('{:,.2f}m'.format)
 
 d123={'quantity':[0.267,0.3284],
-    'rate':[19650.0,ls.table1.TotalCost[4]],
+    'rate':[19650.0,ls.z['total cost'][6]],
  'amount':[0]
     
  }
@@ -469,7 +470,7 @@ Tamount12= round(table12.amount.sum(),2)
 #R.C.C. plinth bend and footings
 
 d121={'quantity':[0.5,0.5],
-   'rate':[230.0,c],
+   'rate':[b,c],
 'amount':[0]
    
 }
@@ -491,7 +492,7 @@ table123['amount']= table123.quantity*table123.rate
 table123['quantity'] = table123['quantity'].map('{:,.2f}m'.format)
 
 d123={'quantity':[0.267,0.3284],
-    'rate':[19650.0,ls.table1.TotalCost[4]],
+    'rate':[19650.0,ls.z['total cost'][6]],
  'amount':[0]
     
  }
@@ -510,7 +511,7 @@ Tamount124=Tamount12/10+Tamount121
 #R.C.C. beams, columns, grider and bressmer etc. 
 
 d131={'quantity':[2.75,2.75],
-   'rate':[230.0,c],
+   'rate':[b,c],
 'amount':[0]
    
 }
@@ -532,7 +533,7 @@ table132['amount']= table132.quantity*table132.rate
 table132['quantity'] = table132['quantity'].map('{:,.2f}m'.format)
 
 d133={'quantity':[0.218,0.456],
-    'rate':[19650.0,ls.table1.TotalCost[4]],
+    'rate':[19650.0,ls.z['total cost'][6]],
  'amount':[0]
     
  }
@@ -551,7 +552,7 @@ Tamount134=Tamount13/10+Tamount131
 #R.C.C. lintels 
 
 d141={'quantity':[1.25,1.25],
-   'rate':[230.0,c],
+   'rate':[b,c],
 'amount':[0]
    
 }
@@ -573,7 +574,7 @@ table142['amount']= table142.quantity*table142.rate
 table142['quantity'] = table142['quantity'].map('{:,.2f}m'.format)
 
 d143={'quantity':[0.413,0.689],
-    'rate':[19650.0,ls.table1.TotalCost[4]],
+    'rate':[19650.0,ls.z['total cost'][6]],
  'amount':[0]
     
  }
@@ -590,7 +591,7 @@ Tamount141=round(table141.amount.sum(),2)
 Tamount144=Tamount14/10+Tamount141
 #R.C.C. walls and fins including attached pillasters Data for 23.90 sqm
 d151={'quantity':[13.5,13.5],
-   'rate':[230.0,c],
+   'rate':[b,c],
 'amount':[0]
    
 }
@@ -612,7 +613,7 @@ table152['amount']= table152.quantity*table152.rate
 table152['quantity'] = table152['quantity'].map('{:,.2f}m'.format)
 
 d153={'quantity':[0.954,0.269,2.4161],
-    'rate':[19650.0,19650.0,ls.table1.TotalCost[4]],
+    'rate':[19650.0,19650.0,ls.z['total cost'][6]],
  'amount':[0]
     
  }
@@ -638,7 +639,7 @@ table161['amount']= table161.quantity*table161.rate
 table161['quantity'] = table161['quantity'].map('{:,.2f}no.'.format)
 
 d162={'quantity':[0.8151],
-    'rate':[ls.table1['TotalCost'][5]],
+    'rate':[ls.z['total cost'][4]],
  'amount':[0]
     
  }
@@ -646,10 +647,10 @@ index162=['cement']
 columns =['quantity','rate','amount']
 table162 = pd.DataFrame(d162,index = index162,columns = columns)
 table162['amount']= table162.quantity*table162.rate
-table162['quantity'] = table162['quantity'].map('{:,.2f}qtl'.format)
+table162['quantity'] = table162['quantity'].map('{:,.4f}qtl'.format)
 
 d163={'quantity':[1.0,0.34],
-    'rate':[ls.table1['TotalCost'][7],ls.table1['TotalCost'][0]],
+    'rate':[ls.z['total cost'][7],ls.z['total cost'][2]],
  'amount':[0]
     
  }
@@ -667,7 +668,7 @@ Tamount16 = round(table16.amount.sum(),2)
 
 #C.R.H.G. stone masonry in c.m.(1:6)
 d171={'quantity':[0.35+2.47,1.41,1.41,1.41+0.25],
-   'rate':[d,c,230.0,a],
+   'rate':[d,c,b,a],
 'amount':[0]
    
 }
@@ -678,7 +679,7 @@ table171['amount']= table171.quantity*table171.rate
 table171['quantity'] = table171['quantity'].map('{:,.2f}no.'.format)
 
 d172={'quantity':[0.572],
-    'rate':[ls.table1['TotalCost'][5]],
+    'rate':[ls.z['total cost'][4]],
  'amount':[0]
     
  }
@@ -686,10 +687,10 @@ index172=['cement']
 columns =['quantity','rate','amount']
 table172 = pd.DataFrame(d172,index = index172,columns = columns)
 table172['amount']= table172.quantity*table172.rate
-table172['quantity'] = table172['quantity'].map('{:,.2f}qtl'.format)
+table172['quantity'] = table172['quantity'].map('{:,.4f}qtl'.format)
 
 d173={'quantity':[1.0,0.24],
-    'rate':[ls.table1['TotalCost'][7],ls.table1['TotalCost'][0]],
+    'rate':[ls.z['total cost'][7],ls.z['total cost'][2]],
  'amount':[0]
     
  }
@@ -706,7 +707,7 @@ table17 = table171.append(table172).append(table173)
 Tamount17 = round(table17.amount.sum(),2)
 #Brick masonry in c.m. (1:6) using c.b. bricks in fndn and plinth
 d181={'quantity':[0.35,1.41,2.96,350],
-   'rate':[d,c,a,ls.table1['TotalCost'][3]],
+   'rate':[d,c,a,ls.z['total cost'][1]],
 'amount':[0]
    
 }
@@ -717,7 +718,7 @@ table181['amount']= table181.quantity*table181.rate
 table181['quantity'] = table181['quantity'].map('{:,.2f}no.'.format)
 
 d182={'quantity':[0.672],
-    'rate':[ls.table1['TotalCost'][5]],
+    'rate':[ls.z['total cost'][4]],
  'amount':[0]
     
  }
@@ -725,10 +726,10 @@ index182=['cement']
 columns =['quantity','rate','amount']
 table182 = pd.DataFrame(d182,index = index182,columns = columns)
 table182['amount']= table182.quantity*table182.rate
-table182['quantity'] = table182['quantity'].map('{:,.2f}qtl'.format)
+table182['quantity'] = table182['quantity'].map('{:,.4f}qtl'.format)
 
 d183={'quantity':[0.24],
-    'rate':[ls.table1['TotalCost'][0]],
+    'rate':[ls.z['total cost'][2]],
  'amount':[0]
     
  }
@@ -743,6 +744,46 @@ table183['quantity'] = table183['quantity'].map('{:,.2f}cum'.format)
 
 table18 = table181.append(table182).append(table183)
 Tamount18 = round(table18.amount.sum(),2)
+#Brick masonry in c.m. (1:6) using fly ash bricks in fndn and plinth
+d281={'quantity':[0.35,1.41,2.96,350],
+   'rate':[d,c,a,ls.z['total cost'][13]],
+'amount':[0]
+   
+}
+index281=['mason I','mason II','unskilled labour','c.b. bricks']
+columns =['quantity','rate','amount']
+table281 = pd.DataFrame(d281,index = index281,columns = columns)
+table281['amount']= table281.quantity*table281.rate
+table281['quantity'] = table281['quantity'].map('{:,.2f}no.'.format)
+
+d282={'quantity':[0.672],
+    'rate':[ls.z['total cost'][4]],
+ 'amount':[0]
+    
+ }
+index282=['cement']
+columns =['quantity','rate','amount']
+table282 = pd.DataFrame(d282,index = index282,columns = columns)
+table282['amount']= table282.quantity*table282.rate
+table282['quantity'] = table282['quantity'].map('{:,.4f}qtl'.format)
+
+d283={'quantity':[0.24],
+    'rate':[ls.z['total cost'][2]],
+ 'amount':[0]
+    
+ }
+
+
+index283=['sand']
+columns =['quantity','rate','amount']
+table283 = pd.DataFrame(d283,index = index283,columns = columns)
+
+table283['amount']= table283.quantity*table283.rate
+table283['quantity'] = table283['quantity'].map('{:,.2f}cum'.format)
+
+table28 = table281.append(table282).append(table283)
+Tamount28 = round(table28.amount.sum(),2)
+
 #12mm thick cement mortar plaster on brick masonry walls
 d191={'quantity':[0.14,0.12],
    'rate':[c,a],
@@ -756,7 +797,7 @@ table191['amount']= table191.quantity*table191.rate
 table191['quantity'] = table191['quantity'].map('{:,.2f}no.'.format)
 
 d192={'quantity':[0.0358],
-    'rate':[ls.table1['TotalCost'][5]],
+    'rate':[ls.z['total cost'][4]],
  'amount':[0]
     
  }
@@ -764,10 +805,10 @@ index192=['cement']
 columns =['quantity','rate','amount']
 table192 = pd.DataFrame(d192,index = index192,columns = columns)
 table192['amount']= table192.quantity*table192.rate
-table192['quantity'] = table192['quantity'].map('{:,.2f}qtl'.format)
+table192['quantity'] = table192['quantity'].map('{:,.4f}qtl'.format)
 
 d193={'quantity':[0.015],
-    'rate':[ls.table1['TotalCost'][0]],
+    'rate':[ls.z['total cost'][2]],
  'amount':[0]
     
  }
@@ -778,7 +819,7 @@ columns =['quantity','rate','amount']
 table193 = pd.DataFrame(d193,index = index193,columns = columns)
 
 table193['amount']= table193.quantity*table193.rate
-table193['quantity'] = table193['quantity'].map('{:,.2f}cum'.format)
+table193['quantity'] = table193['quantity'].map('{:,.3f}cum'.format)
 
 table19 = table191.append(table192).append(table193)
 Tamount19 = round(table19.amount.sum(),2)
@@ -795,7 +836,7 @@ table201['amount']= table201.quantity*table201.rate
 table201['quantity'] = table201['quantity'].map('{:,.2f}no.'.format)
 
 d202={'quantity':[0.043],
-    'rate':[ls.table1['TotalCost'][5]],
+    'rate':[ls.z['total cost'][4]],
  'amount':[0]
     
  }
@@ -806,7 +847,7 @@ table202['amount']= table202.quantity*table202.rate
 table202['quantity'] = table202['quantity'].map('{:,.4f}qtl'.format)
 
 d203={'quantity':[0.018],
-    'rate':[ls.table1['TotalCost'][0]],
+    'rate':[ls.z['total cost'][2]],
  'amount':[0]
     
  }
@@ -817,7 +858,7 @@ columns =['quantity','rate','amount']
 table203 = pd.DataFrame(d203,index = index203,columns = columns)
 
 table203['amount']= table203.quantity*table203.rate
-table203['quantity'] = table203['quantity'].map('{:,.4f}cum'.format)
+table203['quantity'] = table203['quantity'].map('{:,.3f}cum'.format)
 
 table20 = table201.append(table202).append(table203)
 Tamount20 = round(table20.amount.sum(),2)
@@ -834,7 +875,7 @@ table211['amount']= table211.quantity*table201.rate
 table211['quantity'] = table211['quantity'].map('{:,.2f}no.'.format)
 
 d212={'quantity':[0.057],
-    'rate':[ls.table1['TotalCost'][5]],
+    'rate':[ls.z['total cost'][4]],
  'amount':[0]
     
  }
@@ -845,7 +886,7 @@ table212['amount']= table212.quantity*table212.rate
 table212['quantity'] = table212['quantity'].map('{:,.4f}qtl'.format)
 
 d213={'quantity':[0.021],
-    'rate':[ls.table1['TotalCost'][0]],
+    'rate':[ls.z['total cost'][2]],
  'amount':[0]
     
  }
@@ -856,7 +897,7 @@ columns =['quantity','rate','amount']
 table213 = pd.DataFrame(d213,index = index213,columns = columns)
 
 table213['amount']= table213.quantity*table203.rate
-table213['quantity'] = table213['quantity'].map('{:,.4f}cum'.format)
+table213['quantity'] = table213['quantity'].map('{:,.3f}cum'.format)
 
 table21 = table211.append(table212).append(table213)
 Tamount21 = round(table21.amount.sum(),2)
@@ -873,7 +914,7 @@ table221['amount']= table221.quantity*table201.rate
 table221['quantity'] = table221['quantity'].map('{:,.2f}no.'.format)
 
 d222={'quantity':[0.0372],
-    'rate':[ls.table1['TotalCost'][5]],
+    'rate':[ls.z['total cost'][4]],
  'amount':[0]
     
  }
@@ -884,7 +925,7 @@ table222['amount']= table222.quantity*table222.rate
 table222['quantity'] = table222['quantity'].map('{:,.4f}qtl'.format)
 
 d223={'quantity':[0.0075],
-    'rate':[ls.table1['TotalCost'][0]],
+    'rate':[ls.z['total cost'][2]],
  'amount':[0]
     
  }
@@ -913,7 +954,7 @@ table231['amount']= table231.quantity*table231.rate
 table231['quantity'] = table231['quantity'].map('{:,.2f}no.'.format)
 
 d232={'quantity':[0.0543],
-    'rate':[ls.table1['TotalCost'][5]],
+    'rate':[ls.z['total cost'][4]],
  'amount':[0]
     
  }
@@ -924,7 +965,7 @@ table232['amount']= table232.quantity*table232.rate
 table232['quantity'] = table232['quantity'].map('{:,.4f}qtl'.format)
 
 d233={'quantity':[0.015],
-    'rate':[ls.table1['TotalCost'][0]],
+    'rate':[ls.z['total cost'][2]],
  'amount':[0]
     
  }
@@ -935,7 +976,7 @@ columns =['quantity','rate','amount']
 table233 = pd.DataFrame(d233,index = index233,columns = columns)
 
 table233['amount']= table233.quantity*table233.rate
-table233['quantity'] = table233['quantity'].map('{:,.4f}cum'.format)
+table233['quantity'] = table233['quantity'].map('{:,.3f}cum'.format)
 
 table23 = table231.append(table232).append(table233)
 Tamount23 = round(table23.amount.sum(),2)
@@ -952,7 +993,7 @@ table241['amount']= table241.quantity*table241.rate
 table241['quantity'] = table241['quantity'].map('{:,.2f}no.'.format)
 
 d242={'quantity':[0.0744],
-    'rate':[ls.table1['TotalCost'][5]],
+    'rate':[ls.z['total cost'][4]],
  'amount':[0]
     
  }
@@ -963,7 +1004,7 @@ table242['amount']= table242.quantity*table242.rate
 table242['quantity'] = table242['quantity'].map('{:,.4f}qtl'.format)
 
 d243={'quantity':[0.021],
-    'rate':[ls.table1['TotalCost'][0]],
+    'rate':[ls.z['total cost'][2]],
  'amount':[0]
     
  }
@@ -974,7 +1015,7 @@ columns =['quantity','rate','amount']
 table243 = pd.DataFrame(d243,index = index243,columns = columns)
 
 table243['amount']= table243.quantity*table243.rate
-table243['quantity'] = table243['quantity'].map('{:,.4f}cum'.format)
+table243['quantity'] = table243['quantity'].map('{:,.3f}cum'.format)
 
 table24 = table241.append(table242).append(table243)
 Tamount24 = round(table24.amount.sum(),2)
@@ -991,7 +1032,7 @@ table251['amount']= table251.quantity*table251.rate
 table251['quantity'] = table251['quantity'].map('{:,.2f}no.'.format)
 
 d252={'quantity':[0.0858],
-    'rate':[ls.table1['TotalCost'][5]],
+    'rate':[ls.z['total cost'][4]],
  'amount':[0]
     
  }
@@ -1002,7 +1043,7 @@ table252['amount']= table252.quantity*table252.rate
 table252['quantity'] = table252['quantity'].map('{:,.4f}qtl'.format)
 
 d253={'quantity':[0.012,0.023],
-    'rate':[ls.table1['TotalCost'][0],ls.table1['TotalCost'][10]],
+    'rate':[ls.z['total cost'][2],ls.z['total cost'][9]],
  'amount':[0]
     
  }
@@ -1013,7 +1054,7 @@ columns =['quantity','rate','amount']
 table253 = pd.DataFrame(d253,index = index253,columns = columns)
 
 table253['amount']= table253.quantity*table253.rate
-table253['quantity'] = table253['quantity'].map('{:,.4f}cum'.format)
+table253['quantity'] = table253['quantity'].map('{:,.3f}cum'.format)
 
 table25 = table251.append(table252).append(table253)
 Tamount25 = round(table25.amount.sum(),2)
@@ -1041,7 +1082,7 @@ table262['amount']= table262.quantity*table262.rate
 table262['quantity'] = table262['quantity'].map('{:,.4f}l'.format)
 
 d263={'quantity':[0.012,0.023],
-    'rate':[ls.table1['TotalCost'][0],ls.table1['TotalCost'][10]],
+    'rate':[ls.z['total cost'][2],ls.z['total cost'][10]],
  'amount':[0]
     
  }
@@ -1052,7 +1093,7 @@ columns =['quantity','rate','amount']
 table263 = pd.DataFrame(d263,index = index263,columns = columns)
 
 table263['amount']= table263.quantity*table263.rate
-table263['quantity'] = table263['quantity'].map('{:,.4f}cum'.format)
+table263['quantity'] = table263['quantity'].map('{:,.3f}cum'.format)
 
 table26 = table261.append(table262)
 Tamount26 = round(table26.amount.sum(),2)
@@ -1080,7 +1121,7 @@ table272['amount']= table272.quantity*table272.rate
 table272['quantity'] = table272['quantity'].map('{:,.4f}l'.format)
 
 d273={'quantity':[0.012,0.023],
-   'rate':[ls.table1['TotalCost'][0],ls.table1['TotalCost'][10]],
+   'rate':[ls.z['total cost'][2],ls.z['total cost'][10]],
 'amount':[0]
 
 }
@@ -1091,7 +1132,7 @@ columns =['quantity','rate','amount']
 table273 = pd.DataFrame(d273,index = index273,columns = columns)
 
 table273['amount']= table273.quantity*table273.rate
-table273['quantity'] = table273['quantity'].map('{:,.4f}cum'.format)
+table273['quantity'] = table273['quantity'].map('{:,.3f}cum'.format)
 
 table27 = table271.append(table272)
 Tamount27 = round(table27.amount.sum(),2)
@@ -1121,7 +1162,7 @@ if __name__ == "__main__":
     print( ' _'*40)
     print( 'Name of the work:-Restoration of Khola Mandap at Rohila Jharapada')
     print( '-'*75)
-    print( 'Estimated Cost:-',unicode(u"\u20B9"),30000.00,'\t\tHead of Account:-M.L.A.L.A.D.(2012-13)')
+    print( 'Estimated Cost:-',(u"\u20B9"),30000.00,'\t\tHead of Account:-M.L.A.L.A.D.(2012-13)')
     print( '-'*75)
     print( '''Earth work in hard soil including rough dressing, breaking of clods from
 5 to 7cm in size and laying in layers not exceeding 30cm. in height,
@@ -1131,265 +1172,253 @@ within intial lead of 50m and lift 1.50m etc. complete.''')
 and levelling of bed and depositing the excavated earth within initial lead of
 50.0m and lift of 1.50m etc. complete.''')
 
-    table2['amount'] = table2['amount'].map('Rs.{:,.2f}'.format)
+    table2['amount'] = table2['amount'].map('\u20B9{:,.2f}'.format)
 
     print( table2)
     print( '''\nCement concrete (1:4:8) using 40mm size h.g. metal including cost,
 conveyance and royalty etc. complete,''')
-    table3['amount'] = table3['amount'].map('Rs.{:,.2f}'.format)
-    table3['rate']=table3['rate'].map('Rs.{:,.2f}'.format)
+    table3['amount'] = table3['amount'].map('\u20B9{:,.2f}'.format)
+    table3['rate']=table3['rate'].map('\u20B9{:,.2f}'.format)
     print( table3)
-    print( 'Total cost =\t\t\t\t',unicode(u"\u20B9"),Tamount3)
+    print( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount3)
     #==========
     print( '''\nCement concrete (1:3:6) using 40mm size h.g. metal including cost,
 conveyance and royalty etc. complete,''')
-    table4['amount'] = table4['amount'].map('Rs.{:,.2f}'.format)
-    table4['rate']=table4['rate'].map('Rs.{:,.2f}'.format)
+    table4['amount'] = table4['amount'].map('\u20B9{:,.2f}'.format)
+    table4['rate']=table4['rate'].map('\u20B9{:,.2f}'.format)
     print( table4)
-    print( 'Total cost =\t\t\t\t',unicode(u"\u20B9"),Tamount4)
+    print( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount4)
     print( '''\nCement concrete (1:2:4) using 12mm size c.b.g. chips including cost,
 conveyance and royalty etc. complete,''')
-    table5['amount'] = table5['amount'].map('Rs.{:,.2f}'.format)
-    table5['rate']=table5['rate'].map('Rs.{:,.2f}'.format)
+    table5['amount'] = table5['amount'].map('\u20B9{:,.2f}'.format)
+    table5['rate']=table5['rate'].map('\u20B9{:,.2f}'.format)
     print( table5)
-    print( 'Total cost =\t\t\t\t',unicode(u"\u20B9"),Tamount5)
+    print( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount5)
     print( '''\nCement concrete (1:1.5:3) using 12mm size c.b.g. chips including cost,
 conveyance and royalty etc. complete,''')
-    table6['amount'] = table6['amount'].map('Rs.{:,.2f}'.format)
-    table6['rate']=table6['rate'].map('Rs.{:,.2f}'.format)
+    table6['amount'] = table6['amount'].map('\u20B9{:,.2f}'.format)
+    table6['rate']=table6['rate'].map('\u20B9{:,.2f}'.format)
     print( table6)
-    print( 'Total cost =\t\t\t\t',unicode(u"\u20B9"),Tamount6)
+    print( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount6)
     print( '''\nR.C.C. M-20 grade using 20mm downgrade size c.b.g. chips including cost,
 conveyance and royalty etc. complete,''')
-    table7['amount'] = table7['amount'].map('Rs.{:,.2f}'.format)
-    table7['rate']=table7['rate'].map('Rs.{:,.2f}'.format)
-    print( table7
-    print( 'Total cost =\t\t\t\t',unicode(u"\u20B9"),Tamount7)
-    print( '''\nR.C.C. M-25 grade using 20mm downgrade size c.b.g. chips including cost,
+    table7['amount'] = table7['amount'].map('\u20B9{:,.2f}'.format)
+    table7['rate']=table7['rate'].map('\u20B9{:,.2f}'.format)
+    print( table7)
+    print ( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount7)
+    print( '''\nR.C.C. M-25 grade using 20mm down grade size c.b.g. chips including cost,
 conveyance and royalty etc. complete,''')
-    table8['amount'] = table8['amount'].map('Rs.{:,.2f}'.format)
-    table8['rate']=table8['rate'].map('Rs.{:,.2f}'.format)
+    table8['amount'] = table8['amount'].map('\u20B9{:,.2f}'.format)
+    table8['rate']=table8['rate'].map('\u20B9{:,.2f}'.format)
     print( table8)
-    print( 'Total cost =\t\t\t\t',unicode(u"\u20B9"),Tamount8)
+    print( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount8)
     #=============
     print( '''\nSupplying, fiting and placing uncoated HYSD bar reinforcement complete
 as per drawing and technical specification.,''')
-    table9['amount'] = table9['amount'].map('Rs.{:,.2f}'.format)
-    table9['rate']=table9['rate'].map('Rs.{:,.2f}'.format)
-    print( table9
-    print( 'Total cost =\t\t\t\t',unicode(u"\u20B9"),Tamount9
+    table9['amount'] = table9['amount'].map('\u20B9{:,.2f}'.format)
+    table9['rate']=table9['rate'].map('\u20B9{:,.2f}'.format)
+    print( table9)
+    print( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount9)
     #=============
     print( '''Rigid and smooth centering and shuttering for R.C.C. works including
 false works and dismantling then after casting including cost of materials
-complete in ground floor'''
-    print( '-'*75
+complete in ground floor''')
+    print( '-'*75)
     print( '''R.C.C. floor and roof slabs, landins, balconies, projecting sunshades
-and chajjas upto 4.3m height'''
-    table10['amount'] = table10['amount'].map('Rs.{:,.2f}'.format)
-    table10['rate']=table10['rate'].map('Rs.{:,.2f}'.format)
-    print( table10
-    print( 'Total cost for 10 times use for 9.0sqm area =\t',unicode(u"\u20B9"),Tamount10
-    print( 'Total cost for 1 time use for 9.0sqm area =',unicode(u"\u20B9"),Tamount10/10
-    Tamount101=round(table101.amount.sum(),2)
+and chajjas upto 4.3m height''')
+    table10['amount'] = table10['amount'].map('\u20B9{:,.2f}'.format)
+    table10['rate']=table10['rate'].map('\u20B9{:,.2f}'.format)
+    print( table10)
+    print( 'Total cost for 10 times use for 9.0sqm area =\t',(u"\u20B9"),Tamount10)
+    print( 'Total cost for 1 time use for 9.0sqm area =',(u"\u20B9"),Tamount10/10)
+    Tamount101 = round(table101.amount.sum(),2)
     Tamount104=Tamount10/10+Tamount101
     
-    table101['amount'] = table101['amount'].map('Rs.{:,.2f}'.format)
-    table101['rate']=table101['rate'].map('Rs.{:,.2f}'.format)
+    table101['amount'] = table101['amount'].map('\u20B9{:,.2f}'.format)
+    table101['rate']=table101['rate'].map('\u20B9{:,.2f}'.format)
     
-    print( table101
-    print( 'Labour charges for 9.0sqm area = \t',unicode(u"\u20B9"),Tamount101
-    print( 'Total rate for 9.0sqm area = \t\t',unicode(u"\u20B9"),Tamount104
-    print( 'Total rate for 1.0sqm area = \t\t',unicode(u"\u20B9"),round(Tamount104/9,2)
+    print( table101)
+    print( 'Labour charges for 9.0sqm area = \t',(u"\u20B9"),Tamount101)
+    print( 'Total rate for 9.0sqm area = \t\t',(u"\u20B9"),Tamount104)
+    print( 'Total rate for 1.0sqm area = \t\t',(u"\u20B9"),round(Tamount104/9,2))
     #==============
-    print( '''\nR.C.C. stairs excluding landing but including railing details for 5.0 sqm'''
-    table11['amount'] = table11['amount'].map('Rs.{:,.2f}'.format)
-    table11['rate']=table11['rate'].map('Rs.{:,.2f}'.format)
-    print( table11
-    print( 'Total cost for 10 times use for 5.0sqm area =\t',unicode(u"\u20B9"),Tamount11
-    print( 'Total cost for 1 time use for 5.0sqm area =',unicode(u"\u20B9"),Tamount11/10
+    print( '''\nR.C.C. stairs excluding landing but including railing details for 5.0 sqm''')
+    table11['amount'] = table11['amount'].map('\u20B9{:,.2f}'.format)
+    table11['rate']=table11['rate'].map('\u20B9{:,.2f}'.format)
+    print( table11)
+    print( 'Total cost for 10 times use for 5.0sqm area =\t',(u"\u20B9"),Tamount11)
+    print( 'Total cost for 1 time use for 5.0sqm area =',(u"\u20B9"),Tamount11/10)
     Tamount111=round(table111.amount.sum(),2)
     Tamount114=Tamount11/10+Tamount101
     
-    table111['amount'] = table111['amount'].map('Rs.{:,.2f}'.format)
-    table111['rate']=table111['rate'].map('Rs.{:,.2f}'.format)
+    table111['amount'] = table111['amount'].map('\u20B9{:,.2f}'.format)
+    table111['rate']=table111['rate'].map('\u20B9{:,.2f}'.format)
     
-    print( table111
-    print( 'Labour charges for 5.0sqm area = \t',unicode(u"\u20B9"),Tamount111
-    print( 'Total rate for 5.0sqm area = \t\t',unicode(u"\u20B9"),round(Tamount114,2)
-    print( 'Total rate for 1.0sqm area = \t\t',unicode(u"\u20B9"),round(Tamount114/5,2)
+    print( table111)
+    print( 'Labour charges for 5.0sqm area = \t',(u"\u20B9"),Tamount111)
+    print( 'Total rate for 5.0sqm area = \t\t',(u"\u20B9"),round(Tamount114,2))
+    print( 'Total rate for 1.0sqm area = \t\t',(u"\u20B9"),round(Tamount114/5,2))
 #    #===============
     print( '''\nR.C.C. foundation, plinth band and footings bases of columns mass
-concrete precast slabs etc. for 10.0 sqm'''
-    table12['amount'] = table12['amount'].map('Rs.{:,.2f}'.format)
-    table12['rate']=table12['rate'].map('Rs.{:,.2f}'.format)
-    print( table12
-    print( 'Total cost for 10 times use for 10.0sqm area =\t',unicode(u"\u20B9"),Tamount12
-    print( 'Total cost for 1 time use for 10.0sqm area =',unicode(u"\u20B9"),Tamount12/10
+concrete precast slabs etc. for 10.0 sqm''')
+    table12['amount'] = table12['amount'].map('\u20B9{:,.2f}'.format)
+    table12['rate']=table12['rate'].map('\u20B9{:,.2f}'.format)
+    print( table12)
+    print( 'Total cost for 10 times use for 10.0sqm area =\t',(u"\u20B9"),Tamount12)
+    print( 'Total cost for 1 time use for 10.0sqm area =',(u"\u20B9"),Tamount12/10)
     Tamount121=round(table121.amount.sum(),2)
     Tamount124=Tamount12/10+Tamount121
     
-    table121['amount'] = table121['amount'].map('Rs.{:,.2f}'.format)
-    table121['rate']=table121['rate'].map('Rs.{:,.2f}'.format)
+    table121['amount'] = table121['amount'].map('\u20B9{:,.2f}'.format)
+    table121['rate']=table121['rate'].map('\u20B9{:,.2f}'.format)
     
-    print( table121
-    print( 'Labour charges for 10.0sqm area = \t',unicode(u"\u20B9"),Tamount121
-    print( 'Total rate for 10.0sqm area = \t\t',unicode(u"\u20B9"),round(Tamount124,2)
-    print( 'Total rate for 1.0sqm area = \t\t',unicode(u"\u20B9"),round(Tamount124/10,2)
+    print( table121)
+    print( 'Labour charges for 10.0sqm area = \t',(u"\u20B9"),Tamount121)
+    print( 'Total rate for 10.0sqm area = \t\t',(u"\u20B9"),round(Tamount124,2))
+    print( 'Total rate for 1.0sqm area = \t\t',(u"\u20B9"),round(Tamount124/10,2))
     #===============
-    print( '''\nR.C.C. beams, colums, grider and bressmer etc. Data for 4.20 sqm'''
-    table13['amount'] = table13['amount'].map('Rs.{:,.2f}'.format)
-    table13['rate']=table13['rate'].map('Rs.{:,.2f}'.format)
-    print( table13
-    print( 'Total cost for 10 times use for 4.2sqm area =\t',unicode(u"\u20B9"),Tamount13
-    print( 'Total cost for 1 time use for 4.2sqm area =',unicode(u"\u20B9"),round(Tamount13/10,2)
+    print( '''\nR.C.C. beams, colums, grider and bressmer etc. Data for 4.20 sqm''')
+    table13['amount'] = table13['amount'].map('\u20B9{:,.2f}'.format)
+    table13['rate']=table13['rate'].map('\u20B9{:,.2f}'.format)
+    print( table13)
+    print( 'Total cost for 10 times use for 4.2sqm area =\t',(u"\u20B9"),Tamount13)
+    print( 'Total cost for 1 time use for 4.2sqm area =',(u"\u20B9"),round(Tamount13/10,2))
     Tamount131=round(table131.amount.sum(),2)
     Tamount134=Tamount13/10+Tamount131
     
-    table131['amount'] = table131['amount'].map('Rs.{:,.2f}'.format)
-    table131['rate']=table131['rate'].map('Rs.{:,.2f}'.format)
+    table131['amount'] = table131['amount'].map('\u20B9{:,.2f}'.format)
+    table131['rate']=table131['rate'].map('\u20B9{:,.2f}'.format)
     
-    print( table131
-    print( 'Labour charges for 4.2sqm area = \t',unicode(u"\u20B9"),Tamount131
-    print( 'Total rate for 4.2sqm area = \t\t',unicode(u"\u20B9"),round(Tamount134,2)
-    print( 'Total rate for 1.0sqm area = \t\t',unicode(u"\u20B9"),round(Tamount134/4.2,2)
+    print( table131)
+    print( 'Labour charges for 4.2sqm area = \t',(u"\u20B9"),Tamount131)
+    print( 'Total rate for 4.2sqm area = \t\t',(u"\u20B9"),round(Tamount134,2))
+    print( 'Total rate for 1.0sqm area = \t\t',(u"\u20B9"),round(Tamount134/4.2,2))
 #    #===============
-    print( '''\nR.C.C. Lintels. Data for 7.8 sqm'''
-    table14['amount'] = table14['amount'].map('Rs.{:,.2f}'.format)
-    table14['rate']=table14['rate'].map('Rs.{:,.2f}'.format)
-    print( table14
-    print( 'Total cost for 10 times use for 7.8sqm area =\t',unicode(u"\u20B9"),Tamount14
-    print( 'Total cost for 1 time use for 7.8sqm area =',unicode(u"\u20B9"),round(Tamount14/10,2)
+    print( '''\nR.C.C. Lintels. Data for 7.8 sqm''')
+    table14['amount'] = table14['amount'].map('\u20B9{:,.2f}'.format)
+    table14['rate']=table14['rate'].map('\u20B9{:,.2f}'.format)
+    print( table14)
+    print( 'Total cost for 10 times use for 7.8sqm area =\t',(u"\u20B9"),Tamount14)
+    print( 'Total cost for 1 time use for 7.8sqm area =',(u"\u20B9"),round(Tamount14/10,2))
 
 
     
-    table141['amount'] = table141['amount'].map('Rs.{:,.2f}'.format)
-    table141['rate']=table141['rate'].map('Rs.{:,.2f}'.format)
+    table141['amount'] = table141['amount'].map('\u20B9{:,.2f}'.format)
+    table141['rate']=table141['rate'].map('\u20B9{:,.2f}'.format)
     
-    print( table141
-    print( 'Labour charges for 7.8sqm area = \t',unicode(u"\u20B9"),Tamount141
-    print( 'Total rate for 7.8sqm area = \t\t',unicode(u"\u20B9"),round(Tamount144,2)
-    print( 'Total rate for 1.0sqm area = \t\t',unicode(u"\u20B9"),round(Tamount144/7.8,2)
+    print( table141)
+    print( 'Labour charges for 7.8sqm area = \t',(u"\u20B9"),Tamount141)
+    print( 'Total rate for 7.8sqm area = \t\t',(u"\u20B9"),round(Tamount144,2))
+    print( 'Total rate for 1.0sqm area = \t\t',(u"\u20B9"),round(Tamount144/7.8,2))
     #===============
-    print( '''\nR.C.C. walls and ins including attached pillasters Data for 23.90 sqm'''
-    table15['amount'] = table15['amount'].map('Rs.{:,.2f}'.format)
-    table15['rate']=table15['rate'].map('Rs.{:,.2f}'.format)
-    print( table15
-    print( 'Total cost for 10 times use for 23.90 sqmsqm area =\t',unicode(u"\u20B9"),Tamount15
-    print( 'Total cost for 1 time use for 23.90 sqm area =',unicode(u"\u20B9"),round(Tamount15/10,2)
+    print( '''\nR.C.C. walls and ins including attached pillasters Data for 23.90 sqm''')
+    table15['amount'] = table15['amount'].map('\u20B9{:,.2f}'.format)
+    table15['rate']=table15['rate'].map('\u20B9{:,.2f}'.format)
+    print( table15)
+    print( 'Total cost for 10 times use for 23.90 sqmsqm area =\t',(u"\u20B9"),Tamount15)
+    print( 'Total cost for 1 time use for 23.90 sqm area =',(u"\u20B9"),round(Tamount15/10,2))
     Tamount151=round(table151.amount.sum(),2)
     Tamount154=Tamount15/10+Tamount151
     
-    table151['amount'] = table151['amount'].map('Rs.{:,.2f}'.format)
-    table151['rate']=table151['rate'].map('Rs.{:,.2f}'.format)
+    table151['amount'] = table151['amount'].map('\u20B9{:,.2f}'.format)
+    table151['rate']=table151['rate'].map('\u20B9{:,.2f}'.format)
     
-    print( table151
-    print( 'Labour charges for 23.90 sqm area = \t',unicode(u"\u20B9"),Tamount151
-    print( 'Total rate for 2.90 sqm area = \t\t',unicode(u"\u20B9"),round(Tamount154,2)
-    print( 'Total rate for 1.0sqm area = \t\t',unicode(u"\u20B9"),round(Tamount154/23.9,2)
+    print( table151)
+    print( 'Labour charges for 23.90 sqm area = \t',(u"\u20B9"),Tamount151)
+    print( 'Total rate for 2.90 sqm area = \t\t',(u"\u20B9"),round(Tamount154,2))
+    print( 'Total rate for 1.0sqm area = \t\t',(u"\u20B9"),round(Tamount154/23.9,2))
     #===============
     print( '''\nRandom rubble hard granite stone masonry in c.m. (1:6) including cost,
-conveyance and royalty of all materials'''
-    table16['amount'] = table16['amount'].map('Rs.{:,.2f}'.format)
-    table16['rate']=table16['rate'].map('Rs.{:,.2f}'.format)
-    print( table16
-    print( 'Total cost =\t\t\t\t',unicode(u"\u20B9"),Tamount16
+conveyance and royalty of all materials''')
+    table16['amount'] = table16['amount'].map('\u20B9{:,.2f}'.format)
+    table16['rate']=table16['rate'].map('\u20B9{:,.2f}'.format)
+    print( table16)
+    print( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount16)
     #===============
     print( '''\nCoursed rubble hard granite stone masonry in c.m. (1:6) including cost,
-conveyance and royalty of all materials'''
-    table17['amount'] = table17['amount'].map('Rs.{:,.2f}'.format)
-    table17['rate']=table17['rate'].map('Rs.{:,.2f}'.format)
-    print( table17
-    print( 'Total cost =\t\t\t\t',unicode(u"\u20B9"),Tamount17
+conveyance and royalty of all materials''')
+    table17['amount'] = table17['amount'].map('\u20B9{:,.2f}'.format)
+    table17['rate']=table17['rate'].map('\u20B9{:,.2f}'.format)
+    print( table17)
+    print( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount17)
     #===============
     print( '''\nBrick masonry in c.m. (1:6) using C.B. bricks in F & P including cost,
-conveyance and royalty of all materials'''
-    table18['amount'] = table18['amount'].map('Rs.{:,.2f}'.format)
-    table18['rate']=table18['rate'].map('Rs.{:,.2f}'.format)
-    print( table18
-    print( 'Total cost for 1.0cum of brick work in foundation and plinth =',unicode(u"\u20B9"),Tamount18
-    print( 'Total Cost for 1.0cum of brick work in super structure =',unicode(u"\u20B9"),Tamount18+33
+conveyance and royalty of all materials''')
+    table18['amount'] = table18['amount'].map('\u20B9{:,.2f}'.format)
+    table18['rate']=table18['rate'].map('\u20B9{:,.2f}'.format)
+    print( table18)
+    print( 'Total cost for 1.0cum of brick work in foundation and plinth =',(u"\u20B9"),Tamount18)
+    print( 'Total Cost for 1.0cum of brick work in super structure =',(u"\u20B9"),Tamount18+33)
+    #===============
+    print( '''\nBrick masonry in c.m. (1:6) using fly ash bricks in F & P including cost,
+conveyance and royalty of all materials''')
+    table28['amount'] = table28['amount'].map('\u20B9{:,.2f}'.format)
+    table28['rate']=table28['rate'].map('\u20B9{:,.2f}'.format)
+    print( table28)
+    print( 'Total cost for 1.0cum of brick work in foundation and plinth =',(u"\u20B9"),Tamount28)
+    print( 'Total Cost for 1.0cum of brick work in super structure =',(u"\u20B9"),Tamount28+33)
+    
     #===============
     print( '''\nCement mortar plaster (1:6) on brick walls 12mm thick including cost,
-conveyance and royalty of all materials'''
-    table19['amount'] = table19['amount'].map('Rs.{:,.2f}'.format)
-    table19['rate']=table19['rate'].map('Rs.{:,.2f}'.format)
-    print( table19
-    print( 'Total cost for 1.0sqm of 12mm thick plaster with c.m. (1:6) =',unicode(u"\u20B9"),Tamount19
+conveyance and royalty of all materials''')
+    table19['amount'] = table19['amount'].map('\u20B9{:,.2f}'.format)
+    table19['rate']=table19['rate'].map('\u20B9{:,.2f}'.format)
+    print( table19)
+    print( 'Total cost for 1.0sqm of 12mm thick plaster with c.m. (1:6) =',(u"\u20B9"),Tamount19)
     #===============
     print( '''\nCement mortar plaster (1:6) 16mm thick on brick walls 16mm thick including cost,
-conveyance and royalty of all materials'''
-    table20['amount'] = table20['amount'].map('Rs.{:,.2f}'.format)
-    table20['rate']=table20['rate'].map('Rs.{:,.2f}'.format)
-    print( table20
-    print( 'Total cost for 1.0sqm of 16mm thick plaster with c.m. (1:6) =',unicode(u"\u20B9"),Tamount20
+conveyance and royalty of all materials''')
+    table20['amount'] = table20['amount'].map('\u20B9{:,.2f}'.format)
+    table20['rate']=table20['rate'].map('\u20B9{:,.2f}'.format)
+    print( table20)
+    print( 'Total cost for 1.0sqm of 16mm thick plaster with c.m. (1:6) =',(u"\u20B9"),Tamount20)
     #===============
     print( '''\nCement mortar plaster (1:6) 20mm thick on brick walls 16mm thick including cost,
-conveyance and royalty of all materials'''
-    table21['amount'] = table21['amount'].map('Rs.{:,.2f}'.format)
-    table21['rate']=table21['rate'].map('Rs.{:,.2f}'.format)
-    print( table21
-    print( 'Total cost for 1.0sqm of 20mm thick plaster with c.m. (1:6) =',unicode(u"\u20B9"),Tamount21
+conveyance and royalty of all materials''')
+    table21['amount'] = table21['amount'].map('\u20B9{:,.2f}'.format)
+    table21['rate']=table21['rate'].map('\u20B9{:,.2f}'.format)
+    print( table21)
+    print( 'Total cost for 1.0sqm of 20mm thick plaster with c.m. (1:6) =',(u"\u20B9"),Tamount21)
     #===============
     print( '''\nCement mortar plaster (1:4) on brick walls 6mm thick including deep
-chipping and slurry treatment cost,conveyance and royalty of all materials'''
-    table22['amount'] = table22['amount'].map('Rs.{:,.2f}'.format)
-    table22['rate']=table22['rate'].map('Rs.{:,.2f}'.format)
-    print( table22
-    print( 'Total cost for 1.0sqm of 6mm thick plaster with c.m. (1:4) =',unicode(u"\u20B9"),Tamount22
+chipping and slurry treatment cost,conveyance and royalty of all materials''')
+    table22['amount'] = table22['amount'].map('\u20B9{:,.2f}'.format)
+    table22['rate']=table22['rate'].map('\u20B9{:,.2f}'.format)
+    print( table22)
+    print( 'Total cost for 1.0sqm of 6mm thick plaster with c.m. (1:4) =',(u"\u20B9"),Tamount22)
     #===============
     print( '''\nCement mortar plaster (1:4) on brick walls 12mm thick including
-cost,conveyance and royalty of all materials'''
-    table23['amount'] = table23['amount'].map('Rs.{:,.2f}'.format)
-    table23['rate']=table23['rate'].map('Rs.{:,.2f}'.format)
-    print( table23
-    print( 'Total cost for 1.0sqm of 12mm thick plaster with c.m. (1:4) =',unicode(u"\u20B9"),Tamount23
+cost,conveyance and royalty of all materials''')
+    table23['amount'] = table23['amount'].map('\u20B9{:,.2f}'.format)
+    table23['rate']=table23['rate'].map('\u20B9{:,.2f}'.format)
+    print( table23)
+    print( 'Total cost for 1.0sqm of 12mm thick plaster with c.m. (1:4) =',(u"\u20B9"),Tamount23)
     #===============
     print( '''\nCement mortar plaster (1:4)20mm thick on roof slab top including
-cost,conveyance and royalty of all materials'''
-    table24['amount'] = table24['amount'].map('Rs.{:,.2f}'.format)
-    table24['rate']=table24['rate'].map('Rs.{:,.2f}'.format)
-    print( table24
-    print( 'Total cost for 1.0sqm of 20mm thick plaster with c.m. (1:4) =',unicode(u"\u20B9"),Tamount24
+cost,conveyance and royalty of all materials''')
+    table24['amount'] = table24['amount'].map('\u20B9{:,.2f}'.format)
+    table24['rate']=table24['rate'].map('\u20B9{:,.2f}'.format)
+    print( table24)
+    print( 'Total cost for 1.0sqm of 20mm thick plaster with c.m. (1:4) =',(u"\u20B9"),Tamount24)
     
     #===============
     print( '''\n2.5cm thick A.S. flooring sing c.c. (1:2:4) with 12mm c.b.g. chips including
-cost,conveyance and royalty of all materials'''
-    table25['amount'] = table25['amount'].map('Rs.{:,.2f}'.format)
-    table25['rate']=table25['rate'].map('Rs.{:,.2f}'.format)
-    print( table25
-    print( 'Total cost for 1.0sqm of 2.5 thick A.S. flooring with c.c (1:2:4) =',unicode(u"\u20B9"),Tamount25
+cost,conveyance and royalty of all materials''')
+    table25['amount'] = table25['amount'].map('\u20B9{:,.2f}'.format)
+    table25['rate']=table25['rate'].map('\u20B9{:,.2f}'.format)
+    print( table25)
+    print( 'Total cost for 1.0sqm of 2.5 thick A.S. flooring with c.c (1:2:4) =',(u"\u20B9"),Tamount25)
     #===============
     print( '''\nPainting 2 coats over a coat of priming including cost,conveyance
-and royalty of all materials'''
-    table26['amount'] = table26['amount'].map('Rs.{:,.2f}'.format)
-    table26['rate']=table26['rate'].map('Rs.{:,.2f}'.format)
-    print( table26
-    print( 'Total cost for 1.0sqm painting and priming =',unicode(u"\u20B9"),round(Tamount26,2)
+and royalty of all materials''')
+    table26['amount'] = table26['amount'].map('\u20B9{:,.2f}'.format)
+    table26['rate']=table26['rate'].map('\u20B9{:,.2f}'.format)
+    print( table26)
+    print( 'Total cost for 1.0sqm painting and priming =',(u"\u20B9"),round(Tamount26,2))
     #===============
     print( '''\nFinishing newly plastered wall surface with water proofing cement paint
-including cost,conveyance and royalty of all materials'''
-    table27['amount'] = table27['amount'].map('Rs.{:,.2f}'.format)
-    table27['rate']=table27['rate'].map('Rs.{:,.2f}'.format)
-    print( table27
-    print( 'Total cost for 1.0sqm painting and priming =',unicode(u"\u20B9"),round(Tamount27,2)
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-    
-    
-    
-    
-    
-    
+including cost,conveyance and royalty of all materials''')
+    table27['amount'] = table27['amount'].map('\u20B9{:,.2f}'.format)
+    table27['rate']=table27['rate'].map('\u20B9{:,.2f}'.format)
+    print( table27)
+    print( 'Total cost for 1.0sqm painting and priming =',(u"\u20B9"),round(Tamount27,2))  
