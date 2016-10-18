@@ -1,0 +1,14 @@
+items = {'ewhs':'''Earth work in hard soil including breaking of clods from 5 to 7cm in size and
+laying in layers not exceeding 30cm in height within initial lead of 50m and
+lift of 1.50m etc. complete''',
+'m20':'''R.C.C. work of M-20 grade with 20mm and down grade black hard granite
+(crusherbroken) stone chips including hoisting and laying including cost,
+conveyance and royalty of all materials'''}
+
+
+
+
+
+
+if __name__ == "__main__":
+    print(items['m20'])

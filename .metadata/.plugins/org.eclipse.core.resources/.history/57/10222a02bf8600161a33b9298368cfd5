@@ -1,0 +1,10 @@
+items = {'ewhs':'''Earth work in hard soil including dbreaking of clods from 5 to 7cm in size and
+all labour charges etc. complete'''}
+
+
+
+
+
+
+if __name__ == "__main__":
+    print(items['ewhs'])

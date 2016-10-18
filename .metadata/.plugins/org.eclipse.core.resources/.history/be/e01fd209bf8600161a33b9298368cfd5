@@ -1,0 +1,10 @@
+items = {'ewhs':'''Earth work in hard soil including breaking of clods from 5 to 7cm in size and
+laying in layers not exceeding 30cm in height within initial lead of 50m and lift of 1.50m etc. complete'''}
+
+
+
+
+
+
+if __name__ == "__main__":
+    print(items['ewhs'])
