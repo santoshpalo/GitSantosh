@@ -6,12 +6,12 @@ lift of 1.50m etc. complete''',
 conveyance and royalty of all materials etc. complete.\n''',
 'hysd':'''\nSupplying ,fitting and placing uncoated HYSD bar reinforcement complete as per
 drawing and technical specification.''',
-'bmfp':'''\nBrick work with clamp burnt bricks 25cm x 12cm x 8cm size having crushing
+'bmfp':'''\nBrick work with fly ash bricks 25cm x 12cm x 8cm size having crushing
 strength not less than 75Kg/cm2 with dimensional tolerance ± 8 percent cement
 mortar (1:6) in foundation and plinth\n''',
-'bmss':'''\nBrick work with clamp burnt bricks 25cm x 12cm x 8cm size having crushing
+'bmss':'''\nBrick work with fly ash bricks 25cm x 12cm x 8cm size having crushing
 strength not less than 75Kg/cm2 with dimensional tolerance ± 8 percent cement
-mortar (1:6) in foundation and plinth\n''',
+mortar (1:6) in super structure\n''',
 'rscs_plinth':'''Rigid and smooth centering and shuttering for R.C.C. works including
 false works and dismantling them after casting including cost of materials
 complete in ground floor-footings and plinth bend''',
@@ -57,8 +57,8 @@ labour T&P etc required for the work.\n''',
 plaster (1:3) jointed with neat cement slurry mixed with pigments to
 match the shade of the tiles including rubbing and polishing complete
 excluding cost of precast tiles.\n''',
-'efhs':'''Excavation of foundation trench in hard soil including dressing of sides
-and levelling of bed etc. complete.'''
+'efhs':'''\nExcavation of foundation trench in hard soil including dressing of sides
+and levelling of bed etc. complete.\n'''
 ,'CC(1:2:4)':'''\nCement concrete (1:2:4) using 12mm size c.b.g. chips including cost,
 conveyance and royalty etc. complete.\n'''
 ,'rscs_walls':'''\nRigid and smooth centering and shuttering for R.C.C. works including
