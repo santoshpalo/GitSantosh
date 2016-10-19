@@ -22,7 +22,7 @@ class Quantity(object):
         table['Volume']=table['Volume'].map('{:.2f}cum'.format)
         
         print (table,'\n\t\t\t\t\t',
-                '{:.2f}cum'.format(total_volume),'@ Rs.{:.2f}/cum'.format(self.rate),'= Rs.{:.2f}'.format(round(total_volume*self.rate)))
+                '{:.2f}cum'.format(total_volume),'@ \u20B9{:.2f}/cum'.format(self.rate),'= \u20B9{:.2f}'.format(round(total_volume*self.rate)))
     def vArea(self):
         table = pd.DataFrame(self.data,columns=self.vAreaC,index = range(1,len(self.data)+1))
         table['Area']=(table['no']*table['length']*table['height']).round(2)
@@ -33,7 +33,7 @@ class Quantity(object):
         table['Area']=table['Area'].map('{:.2f}sqm'.format)
         
         print (table,'\n\t\t\t\t\t',
-                '{:.2f}sqm'.format(total_volume),'@ Rs.{:.2f}/sqm'.format(self.rate),'= Rs.{:.2f}'.format(round(total_volume*self.rate)))
+                '{:.2f}sqm'.format(total_volume),'@ \u20B9{:.2f}/sqm'.format(self.rate),'= \u20B9{:.2f}'.format(round(total_volume*self.rate)))
     def hArea(self):
         table = pd.DataFrame(self.data,columns=self.hAreaC,index = range(1,len(self.data)+1))
         table['Area']=(table['no']*table['length']*table['breadth']).round(2)
@@ -44,7 +44,7 @@ class Quantity(object):
         table['Area']=table['Area'].map('{:.2f}sqm'.format)
         
         print (table,'\n\t\t\t\t\t',
-                '{:.2f}sqm'.format(total_volume),'@ Rs.{:.2f}/sqm'.format(self.rate),'= Rs.{:.2f}'.format(round(total_volume*self.rate)))
+                '{:.2f}sqm'.format(total_volume),'@ \u20B9{:.2f}/sqm'.format(self.rate),'= \u20B9{:.2f}'.format(round(total_volume*self.rate)))
     def tcl(self):
         table = pd.DataFrame(self.data,columns=self.tclC,index = range(1,len(self.data)+1))
         table['total']=(table['no']*table['length']).round(2)
@@ -76,7 +76,7 @@ class Quantity(object):
         table['weight']=table['weight'].map('{:.2f}kg'.format)
         
         print (table,'\n\t\t\t\t\t',
-                '{:.2f}kg'.format(total_weight),'@ Rs.{:.2f}/kg'.format(self.rate),'= Rs.{:.2f}'.format(round(total_weight*self.rate)))
+                '{:.2f}kg'.format(total_weight),'@ \u20B9{:.2f}/kg'.format(self.rate),'= \u20B9{:.2f}'.format(round(total_weight*self.rate)))
     
         
     
