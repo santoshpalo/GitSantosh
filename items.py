@@ -1,6 +1,9 @@
 items = {'ewhs':'''Earth work in hard soil including breaking of clods from 5 to 7cm in size and
 laying in layers not exceeding 30cm in height within initial lead of 50m and
 lift of 1.50m etc. complete''',
+'rcc':'''\nR.C.C. work (1:1.5:3) with 12mm size black hard granite
+(crusher broken) stone chips including hoisting and laying including cost,
+conveyance and royalty of all materials etc. complete.\n''',
 'm20':'''\nR.C.C. work of M-20 grade with 20mm and down grade black hard granite
 (crusher broken) stone chips including hoisting and laying including cost,
 conveyance and royalty of all materials etc. complete.\n''',
@@ -26,6 +29,10 @@ false works and dismantling them after casting including cost of materials
 complete in ground floor- roof slab and chajja\n''',
 '20cp(1:4)':'''\n20mm, thick cement mortar plaster (1:4) on roof slab top as grading
 plaster including cost, conveyance and royalty etc. complete. \n''',
+'6cp(1:4)':'''\n6mm, thick cement mortar plaster (1:4) on R.C.C. works including
+closely deep chipping and slurry treatment plaster including cost, conveyance and
+royalty etc. complete. \n''',
+
 'bmsscb':'''\nBrick work with clamp burnt bricks 25cm x 12cm x 8cm size having crushing
 strength not less than 75Kg/cm2 with dimensional tolerance ± 8 percent cement
 mortar (1:6) in super structure\n''',
