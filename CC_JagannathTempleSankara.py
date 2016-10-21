@@ -51,9 +51,11 @@ if __name__ == "__main__":
                          ['deduct door1',-1,1.2,0.25,2.1],
                          ['deduct door2',-2,0.9,0.25,2.1],
                          ['deduct windows',-2,0.9,0.25,1.2]])
-    bm_ss.rate = 4277.3+33
+    bm_ss.rate = 3241.35+33
     bm_ss.volume()
-    
+    print(it.items['hysd'])
+    print('\n\t\t\t\t\t    15.00qtl @ ','\u20B9{:.2f}'.format(4529.94),'=','\u20B9{:.2f}'.format(4529.94*15))
+    print(it.items[''])
     
     
     
