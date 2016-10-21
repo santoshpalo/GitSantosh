@@ -1,5 +1,6 @@
 import ClassLibrary as cl
 import items as it
+import FunctionLibrary as fl
 
 
 
@@ -118,7 +119,33 @@ if __name__ == "__main__":
     print('\n',it.items['rscs_plinth'])
     plinth_centering = cl.Quantity([['footings of columns',9,1.2,0.25]
                                     ])
-    plinth_centering.rate =
+    plinth_centering.rate =82.08
+    plinth_centering.vArea()
+    print(it.items['rscs_slab'])
+    slab_centering = cl.Quantity([['slab',1,9.55,9.25],
+                                   ['roof bend',1,54.0-3*0.25-4.25,.05],
+                                   ['chajjas',1,9.25,0.45],
+                                   ['store room shelves',3,4.25,0.45],
+                                   ['window chajjas',2,1.2,0.45]])
+    slab_centering.rate = 305.67
+    slab_centering.vArea()
+    beam_centering = cl.Quantity([['columns',9*4,0.25,3.0+1.0],
+                                  ['beam',1,4.25,.55]])
+    beam_centering.rate=463.09
+    beam_centering.vArea()
+    print(it.items['rscs_lintel'])
+    lintel_centering = cl.Quantity([['sides of lintel bend',1,(9.25*2+4*4.25),0.15],
+                                    ['bottoms of door1',1,1.2,0.25],
+                                    ['bottoms of door2',2,0.9,0.25],
+                                    ['windows',2,0.9,0.25],
+                                    ['lintel beam',1*9+4.25*2,0.75]])
+    lintel_centering.rate =195.11
+    lintel_centering.vArea()
+    print('\n\tProvisional cost towards Display Board and photograph = ','\u20B9{:.2f}'.format(5000),'\n')
+    print('\t\t\t\tCess for welfare of labourers','= \u20B9{:.2f}'.format(5000),'\n')
+    print('-'*80)
+    fl.signature(500000, 'Five lakh only ', 2, '')
+    
     
     
     
