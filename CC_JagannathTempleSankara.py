@@ -115,6 +115,11 @@ if __name__ == "__main__":
     paintp.vArea()
     print(it.items['wpcp'])
     print('\t\t\t\t\t387.27 sqm ','@ \u20B9{:.2f}/ sqm ='.format(20.87),'\u20B9{:.2f}'.format(round(20.87*387.27)))
+    print('\n',it.items['rscs_plinth'])
+    plinth_centering = cl.Quantity([['footings of columns',9,1.2,0.25]
+                                    ])
+    plinth_centering.rate =
+    
     
     
     

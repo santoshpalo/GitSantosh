@@ -480,16 +480,16 @@ table121 = pd.DataFrame(d121,index = index121,columns = columns)
 table121['amount']= table121.quantity*table121.rate
 table121['quantity'] = table121['quantity'].map('{:,.2f}no.'.format)
 
-d123={'quantity':[12.6],
+d122={'quantity':[12.6],
     'rate':[49.0],
  'amount':[0]
     
  }
-index123=['80mm dia non sal bullah']
+index122=['80mm dia non sal bullah']
 columns =['quantity','rate','amount']
-table123 = pd.DataFrame(d123,index = index123,columns = columns)
-table123['amount']= table123.quantity*table123.rate
-table123['quantity'] = table123['quantity'].map('{:,.2f}m'.format)
+table122 = pd.DataFrame(d122,index = index122,columns = columns)
+table122['amount']= table122.quantity*table122.rate
+table122['quantity'] = table122['quantity'].map('{:,.2f}m'.format)
 
 d123={'quantity':[0.267,0.3284],
     'rate':[19650.0,ls.z['total cost'][6]],
@@ -502,8 +502,8 @@ columns =['quantity','rate','amount']
 table123 = pd.DataFrame(d123,index = index123,columns = columns)
 
 table123['amount']= table123.quantity*table123.rate
-table123['quantity'] = table123['quantity'].map('{:,.2f}cum'.format)
-table12 = table123.append(table123)
+table123['quantity'] = table123['quantity'].map('{:,.4f}cum'.format)
+table12 = table122.append(table123)
 Tamount12= round(table12.amount.sum(),2)
 Tamount121=round(table121.amount.sum(),2)
 Tamount124=Tamount12/10+Tamount121
