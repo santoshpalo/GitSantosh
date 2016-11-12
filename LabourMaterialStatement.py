@@ -230,15 +230,15 @@ def material_labour(item,q):
     elif item == 'floor_tile':
         c = ['u/s', 'masonI', 'floor tile', 'cement', 'sand']
         i = ['Fixing tiles in floor']
-        d = {'u/s': [2.16 * q], 'masonI': [2.16 * q], 'floor tile': [1.0 * q], 'cement': [2.297* q], 'sand': [0.13 * q]}
+        d = {'u/s': [0.216 * q], 'masonI': [0.216 * q], 'floor tile': [1.0 * q], 'cement': [.2297* q], 'sand': [0.013 * q]}
         table = pd.DataFrame(d, index=i, columns=c)
         table.insert(0, 'quantity', q)
         table['quantity'] = table['quantity'].map('{:.2f}cum'.format)
     elif item == 'wall_tile':
         c = ['u/s', 'masonI', 'wall tile', 'cement', 'sand']
         i = ['Fixing tiles on walls']
-        d = {'u/s': [3.25 * q], 'masonI': [3.25 * q], 'wall tile': [1.0 * q], 'cement': [1.375 * q],
-             'sand': [0.15 * q]}
+        d = {'u/s': [0.325 * q], 'masonI': [0.325 * q], 'wall tile': [1.0 * q], 'cement': [.1375 * q],
+             'sand': [0.015 * q]}
         table = pd.DataFrame(d, index=i, columns=c)
         table.insert(0, 'quantity', q)
         table['quantity'] = table['quantity'].map('{:.2f}cum'.format)
@@ -273,23 +273,23 @@ if __name__ == "__main__":
 
     a = material_labour('bmfp',0)
     b = material_labour('rcc',0)
-    c = material_labour('cc148',0)
-    d = material_labour('rscscolumn',0)
-    e = material_labour('rscsplinth',0)
-    f = material_labour('efhs',0)
-    g = material_labour('hysd',0)
+    c = material_labour('cc148',0.45)
+    d = material_labour('rscscolumn',14.79)
+    e = material_labour('rscsplinth',11.36)
+    f = material_labour('efhs',5.4)
+    g = material_labour('hysd',2.53)
     h = material_labour('paint',0)
     i = material_labour('wpcp',0)
     j = material_labour('12cp(1:6)',0)
-    k = material_labour('sandfill',0)
+    k = material_labour('sandfill',0.45)
     l = material_labour('asf(1:2:4)',0)
     m = material_labour('16cp(1:6)',0)
-    n = material_labour('rcc M-25',0)
-    o = material_labour('rscsslab',0)
+    n = material_labour('rcc M-25',3.06)
+    o = material_labour('rscsslab',8.04)
     p = material_labour('rscswalls',0)
-    q = material_labour('20cp(1:4)',0)
+    q = material_labour('20cp(1:4)',11.36)
     r = material_labour('cc136',0)
-    s = material_labour('cc124',19.84)
+    s = material_labour('cc124',0)
     t = material_labour('rscslintel',0)
     u = material_labour('20cp(1:6)',0)
     v = material_labour('6cp(1:4)',0)

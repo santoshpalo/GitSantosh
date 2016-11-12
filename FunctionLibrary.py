@@ -261,16 +261,16 @@ including cost,conveyance and royalty etc. complete'''
         t='''Cement concretre (1:1.5:3) using 12mm size granite chips
 including cost,conveyance and royalty etc. complete'''
         d1={'quantity':[4.6,0.68],'rate':[200,240]}
-        d2={'quantity':[4.29],'rate':[ls.table1['total cost'][5]]}
-        d3={'quantity':[0.9,0.45],'rate':[ls.table1['total cost'][10],ls.table1['total cost'][0]]}
+        d2={'quantity':[4.29],'rate':[ls1.z['total cost'][4]]}
+        d3={'quantity':[0.9,0.45],'rate':[ls1.z['total cost'][9],ls1.z['total cost'][2]]}
         i1=['unskilled labour','mason II']
         i2=['cement']
         i3=['12mm h.g. chips','fine sand']
     else:
         t=''
         d1={'quantity':[0],'rate':[200,240]}
-        d2={'quantity':[0],'rate':[ls.table1['total cost'][5]]}
-        d3={'quantity':[0],'rate':[ls.table1['total cost'][10],ls.table1['total cost'][0]]}
+        d2={'quantity':[0],'rate':[ls1.z['total cost'][5]]}
+        d3={'quantity':[0],'rate':[ls1.z['total cost'][10],ls1.z['total cost'][0]]}
         i1=['unskilled labour','mason II']
         i2=['cement']
         i3=['40mm h.g. metal','fine sand']
@@ -687,7 +687,7 @@ including cost,conveyance and royalty etc. complete'''
         d2={'quantity':[0.672],'rate':[ls1.z['total cost'][4]]}
         d3={'quantity':[0.28],'rate':[ls1.z['total cost'][2]]}
 
-        d4={'quantity':[350],'rate':[ls1.z['total cost'][13]]}
+        d4={'quantity':[350],'rate':[ls1.z['total cost'][14]]}
         i1=['unskilled labour','mason II','mason I']
         i2=['cement']
         i3=['fine sand']

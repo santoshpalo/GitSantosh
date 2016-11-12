@@ -53,11 +53,11 @@ def conveyance_brick(x):
 
 m = [['bricks', 1, 'local', 15, 3.38, 0], ['sand', 1, 'Mahanadi', 10, 55.0, 27.5],
      ['course sand', 1, 'Mahanadi', 10, 48.0, 27.5],
-     ['cement', 1, 'Binka', 10, 622.00, 0], ['HYSD bar', 1, 'Binka', 10, 4000, 0], ['wood', 1, 'local', 5, 0, 0],
+     ['cement', 1, 'Binka', 15, 622.00, 0], ['HYSD bar', 1, 'Binka', 15, 4000, 0], ['wood', 1, 'local', 5, 0, 0],
      ['stone', 1, 'Singijuba', 20, 254.0, 98.9], ['10mm c.b.g. chips', 1, 'Singijuba', 30, 1150, 98.9],
      ['12mm c.b.g. chips', 1, 'Singijuba', 30, 1150, 98.9],
-     ['20mm c.b.g. chips', 1, 'Singijuba', 30, 1130, 98.9], ['40mm h.g. metal', 1, 'Singijuba',30, 780, 98.9],
-     ['moorum',1,'Local',5,50,27.5],['fly ash bricks',1,'local',15,4.2,0]]
+     ['20mm c.b.g. chips', 1, 'Singijuba', 30, 1130, 98.9], ['40mm h.g. metal', 1, 'Singijuba',20, 634, 98.9],
+     ['63mm h.g. metal', 1, 'Singijuba',20, 543, 98.9],['moorum',1,'Local',10,50,27.5],['fly ash bricks',1,'local',15,4.2,0]]
 
 
 def cost_of_material(mm, i, c=['Description', 'qty', 'quarry', 'lead', 'basic cost', 'Royalty']):
@@ -66,6 +66,7 @@ def cost_of_material(mm, i, c=['Description', 'qty', 'quarry', 'lead', 'basic co
 a = cost_of_material([m[0]], [1])
 a.insert(4,'conveyance',conveyance_brick(m[0][3]))
 a['qty']=a['qty'].map('{:.0f}no'.format)
+
 b=cost_of_material([m[1]],[2])
 b.insert(4,'conveyance',conveyance(m[1][3]))
 b['qty']=b['qty'].map('{:.0f}cum'.format)
@@ -111,11 +112,17 @@ l.insert(4,'conveyance',conveyance(m[11][3]))
 l['qty']=l['qty'].map('{:.0f}cum'.format)
 
 n=cost_of_material([m[12]],[13])
-n.insert(4,'conveyance',conveyance_brick(m[12][3]))
+n.insert(4,'conveyance',conveyance(m[12][3]))
 n['qty']=n['qty'].map('{:.0f}no'.format)
 
+o=cost_of_material([m[13]],[14])
+o.insert(4,'conveyance',conveyance_brick(m[13][3]))
+o['qty']=o['qty'].map('{:.0f}no'.format)
 
-z = a.append(b).append(c).append(d).append(e).append(f).append(g).append(h).append(i).append(j).append(k).append(l).append(n)
+
+
+
+z = a.append(b).append(c).append(d).append(e).append(f).append(g).append(h).append(i).append(j).append(k).append(l).append(n).append(o)
 z.insert(7,'total cost',z['conveyance']+z['basic cost']+z['Royalty'])
 
 

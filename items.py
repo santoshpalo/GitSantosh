@@ -15,9 +15,9 @@ mortar (1:6) in foundation and plinth\n''',
 'bmss':'''\nBrick work with fly ash bricks 25cm x 12cm x 8cm size having crushing
 strength not less than 75Kg/cm2 with dimensional tolerance ± 8 percent cement
 mortar (1:6) in super structure\n''',
-'rscs_plinth':'''Rigid and smooth centering and shuttering for R.C.C. works including
+'rscs_plinth':'''\nRigid and smooth centering and shuttering for R.C.C. works including
 false works and dismantling them after casting including cost of materials
-complete in ground floor-footings and plinth bend''',
+complete in ground floor-footings and plinth bend\n''',
 'rscs_lintel':'''\nRigid and smooth centering and shuttering for R.C.C. works including
 false works and dismantling them after casting including cost of materials
 complete in ground floor- lintel\n''',
@@ -78,7 +78,39 @@ rammed including cost, conveyance and royalty etc. complete.\n''',
 of soil, including stoney earth, gravel and moorum etc interspread with
 boulders upto 1/2 cum size with all lifts and delifts including trimming of
 slopes and bed to design section specification and as directed by the Engineer-
-in-charge within initial lead of 5.0km including royalty and labour charges for loading.\n'''
+in-charge within initial lead of 5.0km including royalty and labour charges for loading.\n''',
+'vitrified':'''\nSupplying, fitting and fixing vitrified tile in floors of size
+600mm x 600mm of approved make with application of cement mortar bed
+of required thickness and filling joints with white cement of approved quality
+including cost of all materials, labour T&P etc required for the work.\n''',
+'wall_tile':'''\nFixing tiles in dados skirting and risers of steps on 12mm thick
+cement plaster (1:3) jointed with neat cement slurry mixed with pigments to
+match the shade of the tiles including rubbing and polishing complete
+excluding cost of precast tiles.\n''',
+'distemper':'''\nDistempering two coats to walls with distemper of approved shade on new
+work to give an even shade exculding cost of distemper.\n''',
+'wall_paint':'''\nWall painting 2 coats with weather coat paint of approved shade
+on new work to give an even shade exculding cost of paint\n''',
+'sand_fill':'''\nFilling sand in foundation and plinth well watered and
+rammed including cost, conveyance and royalty etc. complete.\n''',
+'subbase':'''Labour for laying sub-base in layers not exceeding 100mm watering and
+compacting to the required density in O.M.C with PRR but excluding cost and
+conveyance of sub base materials''',
+'gradeI':'''\nLabour for spreading metal and packing the voids with small stones and hand
+packing the same to proper camber including conveying spreading of filler 
+materials and filling the interstices by spreading the same over the surface,
+watering and consolidation with PRR including hire and running charges of PRR
+complete but excluding cost and conveyance of metal and filler materials\n''',
+'moorumcollection':'''\nCollection of good qualty laterite moorum on both sides of road in
+regular stacks of size 1.50m x 1.50m x 0.5m. Taking each stack to be 1 cum each
+after exclusion of voids. The cost is inclusive of cost, conveyance and royalty
+etc. complete.\n''',
+'metalcollection':'''\nCollection of hand broken granite stone 63mm size on both sides of road in
+regular stacks of size 1.50m x 1.50m x 0.5m. Taking each stack to be 1 cum each
+after exclusion of voids. The cost is inclusive of cost, conveyance and royalty
+etc. complete.\n'''
+
+
 
 
 

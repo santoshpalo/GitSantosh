@@ -1,5 +1,7 @@
-print ('''Earth work in hard soil including breaking of clods from 5 to 7cm
-    # in size and laying in layers not exceeding 30cm in height\n''')
+#===============================================================================
+# print ('''Earth work in hard soil including breaking of clods from 5 to 7cm
+#     # in size and laying in layers not exceeding 30cm in height\n''')
+#===============================================================================
     #     print( fl.foundation(0)
     #     print( '''\nExcavation of foundation trench in hard soil including
     # dressing of sides and levelling of bed etc. complete.\n'''
@@ -1160,14 +1162,19 @@ Tamount27 = round(table27.amount.sum(),2)
 if __name__ == "__main__":
     print( '\t\t\tANALYSIS OF RATES')
     print( ' _'*40)
-    print( 'Name of the work:-Restoration of Khola Mandap at Rohila Jharapada')
+    print( '''Name of the work:-Construction of  centre at Baunsuni Talipada
+    ''')
     print( '-'*75)
-    print( 'Estimated Cost:-',(u"\u20B9"),30000.00,'\t\tHead of Account:-M.L.A.L.A.D.(2012-13)')
+    print( 'Estimated Cost:-',('\u20B92,00,000.00\t\tHead of Account:-Biju K.B.K.(2016-17)'))
     print( '-'*75)
-    print( '''Earth work in hard soil including rough dressing, breaking of clods from
-5 to 7cm in size and laying in layers not exceeding 30cm. in height,
-within intial lead of 50m and lift 1.50m etc. complete.''')
-    print( table1)
+#===============================================================================
+# #===============================================================================
+# #     print( '''Earth work in hard soil including rough dressing, breaking of clods from
+#===============================================================================
+# 5 to 7cm in size and laying in layers not exceeding 30cm. in height,
+# within intial lead of 50m and lift 1.50m etc. complete.''')
+#     print( table1)
+#===============================================================================
     print( '''\nExcavation of foundation trench in hard soil including dressing of sides
 and levelling of bed and depositing the excavated earth within initial lead of
 50.0m and lift of 1.50m etc. complete.''')
@@ -1182,36 +1189,42 @@ conveyance and royalty etc. complete,''')
     print( table3)
     print( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount3)
     #==========
-    print( '''\nCement concrete (1:3:6) using 40mm size h.g. metal including cost,
-conveyance and royalty etc. complete,''')
-    table4['amount'] = table4['amount'].map('\u20B9{:,.2f}'.format)
-    table4['rate']=table4['rate'].map('\u20B9{:,.2f}'.format)
-    print( table4)
-    print( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount4)
-    print( '''\nCement concrete (1:2:4) using 12mm size c.b.g. chips including cost,
-conveyance and royalty etc. complete,''')
-    table5['amount'] = table5['amount'].map('\u20B9{:,.2f}'.format)
-    table5['rate']=table5['rate'].map('\u20B9{:,.2f}'.format)
-    print( table5)
-    print( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount5)
-    print( '''\nCement concrete (1:1.5:3) using 12mm size c.b.g. chips including cost,
-conveyance and royalty etc. complete,''')
-    table6['amount'] = table6['amount'].map('\u20B9{:,.2f}'.format)
-    table6['rate']=table6['rate'].map('\u20B9{:,.2f}'.format)
-    print( table6)
-    print( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount6)
+#===============================================================================
+#     print( '''\nCement concrete (1:3:6) using 40mm size h.g. metal including cost,
+# conveyance and royalty etc. complete,''')
+#     table4['amount'] = table4['amount'].map('\u20B9{:,.2f}'.format)
+#     table4['rate']=table4['rate'].map('\u20B9{:,.2f}'.format)
+#     print( table4)
+#     print( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount4)
+#===============================================================================
+#===============================================================================
+#     print( '''\nCement concrete (1:2:4) using 12mm size c.b.g. chips including cost,
+# conveyance and royalty etc. complete,''')
+#     table5['amount'] = table5['amount'].map('\u20B9{:,.2f}'.format)
+#     table5['rate']=table5['rate'].map('\u20B9{:,.2f}'.format)
+#     print( table5)
+#     print( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount5)
+#     print( '''\nCement concrete (1:1.5:3) using 12mm size c.b.g. chips including cost,
+# conveyance and royalty etc. complete,''')
+#     table6['amount'] = table6['amount'].map('\u20B9{:,.2f}'.format)
+#     table6['rate']=table6['rate'].map('\u20B9{:,.2f}'.format)
+#     print( table6)
+#     print( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount6)
+#===============================================================================
     print( '''\nR.C.C. M-20 grade using 20mm downgrade size c.b.g. chips including cost,
 conveyance and royalty etc. complete,''')
     table7['amount'] = table7['amount'].map('\u20B9{:,.2f}'.format)
     table7['rate']=table7['rate'].map('\u20B9{:,.2f}'.format)
     print( table7)
     print ( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount7)
-    print( '''\nR.C.C. M-25 grade using 20mm down grade size c.b.g. chips including cost,
-conveyance and royalty etc. complete,''')
-    table8['amount'] = table8['amount'].map('\u20B9{:,.2f}'.format)
-    table8['rate']=table8['rate'].map('\u20B9{:,.2f}'.format)
-    print( table8)
-    print( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount8)
+#===============================================================================
+#     print( '''\nR.C.C. M-25 grade using 20mm down grade size c.b.g. chips including cost,
+# conveyance and royalty etc. complete,''')
+#     table8['amount'] = table8['amount'].map('\u20B9{:,.2f}'.format)
+#     table8['rate']=table8['rate'].map('\u20B9{:,.2f}'.format)
+#     print( table8)
+#     print( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount8)
+#===============================================================================
     #=============
     print( '''\nSupplying, fiting and placing uncoated HYSD bar reinforcement complete
 as per drawing and technical specification.,''')
@@ -1242,22 +1255,24 @@ and chajjas upto 4.3m height''')
     print( 'Total rate for 9.0sqm area = \t\t',(u"\u20B9"),Tamount104)
     print( 'Total rate for 1.0sqm area = \t\t',(u"\u20B9"),round(Tamount104/9,2))
     #==============
-    print( '''\nR.C.C. stairs excluding landing but including railing details for 5.0 sqm''')
-    table11['amount'] = table11['amount'].map('\u20B9{:,.2f}'.format)
-    table11['rate']=table11['rate'].map('\u20B9{:,.2f}'.format)
-    print( table11)
-    print( 'Total cost for 10 times use for 5.0sqm area =\t',(u"\u20B9"),Tamount11)
-    print( 'Total cost for 1 time use for 5.0sqm area =',(u"\u20B9"),Tamount11/10)
-    Tamount111=round(table111.amount.sum(),2)
-    Tamount114=Tamount11/10+Tamount101
-    
-    table111['amount'] = table111['amount'].map('\u20B9{:,.2f}'.format)
-    table111['rate']=table111['rate'].map('\u20B9{:,.2f}'.format)
-    
-    print( table111)
-    print( 'Labour charges for 5.0sqm area = \t',(u"\u20B9"),Tamount111)
-    print( 'Total rate for 5.0sqm area = \t\t',(u"\u20B9"),round(Tamount114,2))
-    print( 'Total rate for 1.0sqm area = \t\t',(u"\u20B9"),round(Tamount114/5,2))
+    #===========================================================================
+    # print( '''\nR.C.C. stairs excluding landing but including railing details for 5.0 sqm''')
+    # table11['amount'] = table11['amount'].map('\u20B9{:,.2f}'.format)
+    # table11['rate']=table11['rate'].map('\u20B9{:,.2f}'.format)
+    # print( table11)
+    # print( 'Total cost for 10 times use for 5.0sqm area =\t',(u"\u20B9"),Tamount11)
+    # print( 'Total cost for 1 time use for 5.0sqm area =',(u"\u20B9"),Tamount11/10)
+    # Tamount111=round(table111.amount.sum(),2)
+    # Tamount114=Tamount11/10+Tamount101
+    # 
+    # table111['amount'] = table111['amount'].map('\u20B9{:,.2f}'.format)
+    # table111['rate']=table111['rate'].map('\u20B9{:,.2f}'.format)
+    # 
+    # print( table111)
+    # print( 'Labour charges for 5.0sqm area = \t',(u"\u20B9"),Tamount111)
+    # print( 'Total rate for 5.0sqm area = \t\t',(u"\u20B9"),round(Tamount114,2))
+    # print( 'Total rate for 1.0sqm area = \t\t',(u"\u20B9"),round(Tamount114/5,2))
+    #===========================================================================
 #    #===============
     print( '''\nR.C.C. foundation, plinth band and footings bases of columns mass
 concrete precast slabs etc. for 10.0 sqm''')
@@ -1311,44 +1326,48 @@ concrete precast slabs etc. for 10.0 sqm''')
     print( 'Total rate for 7.8sqm area = \t\t',(u"\u20B9"),round(Tamount144,2))
     print( 'Total rate for 1.0sqm area = \t\t',(u"\u20B9"),round(Tamount144/7.8,2))
     #===============
-    print( '''\nR.C.C. walls and ins including attached pillasters Data for 23.90 sqm''')
-    table15['amount'] = table15['amount'].map('\u20B9{:,.2f}'.format)
-    table15['rate']=table15['rate'].map('\u20B9{:,.2f}'.format)
-    print( table15)
-    print( 'Total cost for 10 times use for 23.90 sqmsqm area =\t',(u"\u20B9"),Tamount15)
-    print( 'Total cost for 1 time use for 23.90 sqm area =',(u"\u20B9"),round(Tamount15/10,2))
-    Tamount151=round(table151.amount.sum(),2)
-    Tamount154=Tamount15/10+Tamount151
-    
-    table151['amount'] = table151['amount'].map('\u20B9{:,.2f}'.format)
-    table151['rate']=table151['rate'].map('\u20B9{:,.2f}'.format)
-    
-    print( table151)
-    print( 'Labour charges for 23.90 sqm area = \t',(u"\u20B9"),Tamount151)
-    print( 'Total rate for 2.90 sqm area = \t\t',(u"\u20B9"),round(Tamount154,2))
-    print( 'Total rate for 1.0sqm area = \t\t',(u"\u20B9"),round(Tamount154/23.9,2))
+    #===========================================================================
+    # print( '''\nR.C.C. walls and ins including attached pillasters Data for 23.90 sqm''')
+    # table15['amount'] = table15['amount'].map('\u20B9{:,.2f}'.format)
+    # table15['rate']=table15['rate'].map('\u20B9{:,.2f}'.format)
+    # print( table15)
+    # print( 'Total cost for 10 times use for 23.90 sqmsqm area =\t',(u"\u20B9"),Tamount15)
+    # print( 'Total cost for 1 time use for 23.90 sqm area =',(u"\u20B9"),round(Tamount15/10,2))
+    # Tamount151=round(table151.amount.sum(),2)
+    # Tamount154=Tamount15/10+Tamount151
+    # 
+    # table151['amount'] = table151['amount'].map('\u20B9{:,.2f}'.format)
+    # table151['rate']=table151['rate'].map('\u20B9{:,.2f}'.format)
+    # 
+    # print( table151)
+    # print( 'Labour charges for 23.90 sqm area = \t',(u"\u20B9"),Tamount151)
+    # print( 'Total rate for 2.90 sqm area = \t\t',(u"\u20B9"),round(Tamount154,2))
+    # print( 'Total rate for 1.0sqm area = \t\t',(u"\u20B9"),round(Tamount154/23.9,2))
+    #===========================================================================
     #===============
-    print( '''\nRandom rubble hard granite stone masonry in c.m. (1:6) including cost,
-conveyance and royalty of all materials''')
-    table16['amount'] = table16['amount'].map('\u20B9{:,.2f}'.format)
-    table16['rate']=table16['rate'].map('\u20B9{:,.2f}'.format)
-    print( table16)
-    print( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount16)
-    #===============
-    print( '''\nCoursed rubble hard granite stone masonry in c.m. (1:6) including cost,
-conveyance and royalty of all materials''')
-    table17['amount'] = table17['amount'].map('\u20B9{:,.2f}'.format)
-    table17['rate']=table17['rate'].map('\u20B9{:,.2f}'.format)
-    print( table17)
-    print( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount17)
-    #===============
-    print( '''\nBrick masonry in c.m. (1:6) using C.B. bricks in F & P including cost,
-conveyance and royalty of all materials''')
-    table18['amount'] = table18['amount'].map('\u20B9{:,.2f}'.format)
-    table18['rate']=table18['rate'].map('\u20B9{:,.2f}'.format)
-    print( table18)
-    print( 'Total cost for 1.0cum of brick work in foundation and plinth =',(u"\u20B9"),Tamount18)
-    print( 'Total Cost for 1.0cum of brick work in super structure =',(u"\u20B9"),Tamount18+33)
+#===============================================================================
+#     print( '''\nRandom rubble hard granite stone masonry in c.m. (1:6) including cost,
+# conveyance and royalty of all materials''')
+#     table16['amount'] = table16['amount'].map('\u20B9{:,.2f}'.format)
+#     table16['rate']=table16['rate'].map('\u20B9{:,.2f}'.format)
+#     print( table16)
+#     print( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount16)
+#     #===============
+#     print( '''\nCoursed rubble hard granite stone masonry in c.m. (1:6) including cost,
+# conveyance and royalty of all materials''')
+#     table17['amount'] = table17['amount'].map('\u20B9{:,.2f}'.format)
+#     table17['rate']=table17['rate'].map('\u20B9{:,.2f}'.format)
+#     print( table17)
+#     print( 'Total cost =\t\t\t\t',(u"\u20B9"),Tamount17)
+#     #===============
+#     print( '''\nBrick masonry in c.m. (1:6) using C.B. bricks in F & P including cost,
+# conveyance and royalty of all materials''')
+#     table18['amount'] = table18['amount'].map('\u20B9{:,.2f}'.format)
+#     table18['rate']=table18['rate'].map('\u20B9{:,.2f}'.format)
+#     print( table18)
+#     print( 'Total cost for 1.0cum of brick work in foundation and plinth =',(u"\u20B9"),Tamount18)
+#     print( 'Total Cost for 1.0cum of brick work in super structure =',(u"\u20B9"),Tamount18+33)
+#===============================================================================
     #===============
     print( '''\nBrick masonry in c.m. (1:6) using fly ash bricks in F & P including cost,
 conveyance and royalty of all materials''')
@@ -1422,3 +1441,8 @@ including cost,conveyance and royalty of all materials''')
     table27['rate']=table27['rate'].map('\u20B9{:,.2f}'.format)
     print( table27)
     print( 'Total cost for 1.0sqm painting and priming =',(u"\u20B9"),round(Tamount27,2))  
+    
+    
+    
+    print('\n\nJunior Engineer\t\t Assistant Engineer\t\tBlock Development Officer')
+    print('Binka Block Ofiice\tBinka Block Office\t\t\tBinka')

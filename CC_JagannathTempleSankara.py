@@ -12,8 +12,10 @@ import FunctionLibrary as fl
 
 
 if __name__ == "__main__":
-    print('Name of the work :-Construction of community centre at Jagannath Temple Sankara')
+    print('Name of the work :-Restoration of Jagannath Temple at Sankara')
     print('\nEstimated Cost:-','\u20B9{:.2f}'.format(500000),'\t','Head of Account:-W.O.D.C.(2015-16)')
+    print('-'*80)
+    print('Calculation of total centre line length')
     centre_line=cl.Quantity([['walls',6,9]
                              ])
     
